@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project99 IA & Marketing</title>
+    <meta name="theme-color" content="#050507" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./logo-inspo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="bg-texture"></div>
+    <main class="app-shell">
+      <section id="loginView" class="card login-card">
+        <img src="./logo-inspo.png" alt="Logo Project99 IA & Marketing" class="logo" />
+        <h1>Project99 IA & Marketing</h1>
+        <p class="muted">Control total del negocio, cada dia.</p>
+        <form id="loginForm" class="grid-form">
+          <label>
+            Nombre de usuario
+            <input id="username" type="text" required placeholder="Ej: Alejandro" />
+          </label>
+          <label>
+            Rol
+            <select id="role" required>
+              <option value="">Selecciona rol</option>
+              <option value="Desarrollador">Desarrollador</option>
+              <option value="CM">CM</option>
+            </select>
+          </label>
+          <label>
+            Codigo secreto
+            <input id="secretCode" type="password" required />
+          </label>
+          <button class="neon-btn" type="submit">Iniciar jornada</button>
+        </form>
+      </section>
+
+      <section id="dashboardView" class="hidden">
+        <header class="topbar card">
+          <div>
+            <h2 id="welcomeText"></h2>
+            <p id="liveClock" class="clock"></p>
+            <p id="dailyQuote" class="quote"></p>
+          </div>
+          <div class="streak-box">
+            <span>Racha</span>
+            <strong id="streakValue">0 dias</strong>
+          </div>
+        </header>
+
+        <section class="card">
+          <h3>Impulso del dia</h3>
+          <p id="dailyBusinessMessage" class="quote"></p>
+          <div id="dailyVideoCard" class="mini-card"></div>
+        </section>
+
+        <section class="card code-gate">
+          <h3>Panel de control</h3>
+          <div class="gate-row">
+            <input id="panelCodeInput" type="password" placeholder="Introduce codigo" />
+            <button id="panelCodeBtn" class="neon-btn">Entrar</button>
+          </div>
+          <p id="teammateTimeResult" class="muted"></p>
+        </section>
+
+        <section class="card">
+          <h3>Trabajo de hoy</h3>
+          <form id="taskForm" class="grid-form">
+            <label>
+              Tipo de trabajo
+              <select id="taskType" required>
+                <option>Hacer llamadas</option>
+                <option>Subir contenido</option>
+                <option>Responder mensajes</option>
+                <option>Hacer publicidad</option>
+              </select>
+            </label>
+            <label>
+              Miembro
+              <select id="taskMember" required>
+                <option>Hugo</option>
+                <option>Alejandro</option>
+              </select>
+            </label>
+            <label>
+              Limite de hora
+              <input id="taskDeadline" type="time" required />
+            </label>
+            <label class="full">
+              Notas
+              <textarea id="taskNotes" required placeholder="Describe el trabajo para tu companero"></textarea>
+            </label>
+            <button type="submit" class="neon-btn">Agregar trabajo</button>
+          </form>
+          <ul id="taskList" class="list"></ul>
+        </section>
+
+        <section class="card">
+          <h3>Ganancias (objetivo: 10.000 EUR)</h3>
+          <canvas id="profitChart" width="800" height="220"></canvas>
+          <div class="button-row">
+            <button id="addProfitBtn" class="neon-btn">Registrar ganancias</button>
+            <button id="addLossBtn" class="neon-btn secondary">Registrar perdidas</button>
+          </div>
+          <p id="balanceText" class="muted"></p>
+        </section>
+
+        <section class="card">
+          <h3>Noticias economicas IA</h3>
+          <div id="newsList" class="cards-grid"></div>
+          <h4>Videos sobre negocios</h4>
+          <div id="businessVideosList" class="cards-grid"></div>
+        </section>
+
+        <section class="card">
+          <h3>Videos</h3>
+          <div id="videoSections" class="cards-grid"></div>
+        </section>
+
+        <section class="card">
+          <h3>Claves de trato al cliente (5 del dia)</h3>
+          <ul id="dailyKeysList" class="list"></ul>
+        </section>
+
+        <section class="card">
+          <h3>Enviar mensaje</h3>
+          <form id="messageForm" class="grid-form">
+            <label>
+              Seleccionar miembro
+              <select id="messageMember" required>
+                <option>Hugo</option>
+                <option>Alejandro</option>
+              </select>
+            </label>
+            <label class="full">
+              Mensaje
+              <textarea id="messageText" required placeholder="Escribe el mensaje"></textarea>
+            </label>
+            <button class="neon-btn" type="submit">Enviar mensaje</button>
+          </form>
+          <ul id="messageHistory" class="list"></ul>
+        </section>
+
+        <footer class="footer muted">
+          <span id="sessionTimer">Tiempo en app: 00:00:00</span>
+          <button id="logoutBtn" class="neon-btn secondary">Cerrar app</button>
+        </footer>
+      </section>
+    </main>
+
+    <dialog id="welcomeDialog" class="modal">
+      <p>Estas listo para hacer dinero hoy?</p>
+      <button id="letsGoBtn" class="neon-btn">Vamos</button>
+    </dialog>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
